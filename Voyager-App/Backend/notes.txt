@@ -1,0 +1,72 @@
+pip install fastapi uvicorn python-multipart pandas fitz Pillow pytesseract openpyxl odfpy fitz frontend
+Create a Env :
+
+python -m venv name
+
+To Bypass:
+
+-> powershell -NoProfile -ExecutionPolicy Bypass
+-> .\RegionalGenAI\Scripts\activate
+
+*******
+need to install fastapi & uvicorn
+ 
+----> To Run : uvicorn main:api (name of class : app name)
+uvicorn main:api -- reload
+
+--> To see endpoints in the Swagger UI : http://127.0.0.1:8000/docs (Just need to add docs to endpoint)
+
+to kill 8000 port: 
+1. netstat -ano | findstr :8000
+2. taskkill /PID 12345 /F
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# def extract_pdf(file_path):
+#     doc = fitz.open(file_path)
+#     return "\n".join(page.get_text() for page in doc)
+
+# def extract_txt(file_path):
+#     with open(file_path, "r", encoding="utf-8") as f:
+#         return f.read()
+
+# def extract_ods(file_path):
+#     df = pd.read_excel(file_path, engine="odf")
+#     return df.to_dict()
+
+# def extract_image_text(file_path):
+#     img = Image.open(file_path)
+#     return pytesseract.image_to_string(img)

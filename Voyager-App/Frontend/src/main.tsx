@@ -1,0 +1,27 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './styles/globals.css';
+import LoginPage from './components/LoginPage';
+import ChatUI from './components/Chat-UI/ChatUI';
+import { AuthProvider } from './contexts/AuthContext';
+import { OpenAIAdapter } from './adapters/OpenAIAdapter';
+
+const GOOGLE_CLIENT_ID = '139595164187-qj4m3um9j1vf45vm9fktjd1m64l6ljhu.apps.googleusercontent.com';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/chat" element={<ChatUI backend={OpenAIAdapter} />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </GoogleOAuthProvider>
+  </React.StrictMode>
+);
