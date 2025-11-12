@@ -1,2 +1,0 @@
-# regionalgenai
-Theja Changes
